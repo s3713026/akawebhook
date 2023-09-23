@@ -1,3 +1,4 @@
+
 const bcrypt = require("bcryptjs");
 
 function sendmail(email) {
@@ -63,7 +64,17 @@ module.exports = {
         let data_body = ctx.request.body;
         let user_identities = data_body.user_identities;
         let user_attributes = data_body.user_attributes;
-        let Email = user_identities[0].identity
+        let Email = '';
+        let id = ''
+        let i = 0;
+        for (i = 0;i <= user_identities.length;i++){
+            if(user_identities[i].identity_type == 'email'){
+                Email = user_identities[i].identity 
+            } else if(user_identities[i].identity_type == 'customer_id'){
+                id = user_identities[i].identity
+            }
+        }
+        
         let Mobile = user_attributes.Mobile
         let City = user_attributes.City
         console.log(data_body);
@@ -73,6 +84,7 @@ module.exports = {
             count = count + 1;
             let entry = await strapi.db.query('plugin::akamail.akalead').create({
                 data: {
+                    id : id,
                     Email: Email,
                     Mobile: Mobile,
                     //   Full_Name: Full_Name,
