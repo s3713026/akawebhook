@@ -66,6 +66,7 @@ module.exports = {
         let Email = user_identities[0].identity
         let Mobile = user_attributes.Mobile
         let City = user_attributes.City
+        console.log(data_body);
         let count = 0;
         if (data_body.events[0].data.custom_event_type == 'add_to_cart') {
             console.log('update')
