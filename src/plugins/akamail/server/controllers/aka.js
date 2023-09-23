@@ -2,31 +2,29 @@
 const bcrypt = require("bcryptjs");
 
 function sendmail(email) {
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
+    var request = require('request');
+    var options = {
+        'method': 'POST',
+        'url': 'https://email.unito.vn/api/send-email',
+        'headers': {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            "domain": "app.akadigital.net",
+            "key": "aka",
+            "pkey": "private_app.key",
+            "from": "sender@app.akadigital.net",
+            "to": email,
+            "subject": "Thanks for join Aka digital",
+            "text": "This is a test email from app.",
+            "html": "<html><body><h1>Your HTML content here</h1></body></html>"
+        })
 
-    var raw = JSON.stringify({
-        "domain": "app.akadigital.net",
-        "key": "aka",
-        "pkey": "private_app.key",
-        "from": "sender@app.akadigital.net",
-        "to": email,
-        "subject": "Test Mail",
-        "text": "This is a test email from app.",
-        "html": "<html><body><h1>Your HTML content here</h1></body></html>"
-    });
-
-    var requestOptions = {
-        method: 'POST',
-        headers: myHeaders,
-        body: raw,
-        redirect: 'follow'
     };
-
-    fetch("https://email.unito.vn/api/send-email", requestOptions)
-        .then(response => response.text())
-        .then(result => console.log(result))
-        .catch(error => console.log('error', error));
+    request(options, function (error, response) {
+        if (error) throw new Error(error);
+        console.log(response.body);
+    });
 }
 
 module.exports = {
@@ -69,16 +67,16 @@ module.exports = {
         let i = 0;
         console.log(data_body);
         console.log(user_identities[0].identity_type);
-        for (i = 0;i < user_identities.length;i++){
-            if(user_identities[i].identity_type == 'email'){
-                Email = user_identities[i].identity 
-            } else if(user_identities[i].identity_type == 'customer_id'){
+        for (i = 0; i < user_identities.length; i++) {
+            if (user_identities[i].identity_type == 'email') {
+                Email = user_identities[i].identity
+            } else if (user_identities[i].identity_type == 'customer_id') {
                 id = user_identities[i].identity
             }
         }
-        
-        let Mobile = user_attributes.Mobile != undefined? user_attributes.Mobile :'' 
-        let City = user_attributes.City != undefined?  user_attributes.City: ''
+
+        let Mobile = user_attributes.Mobile != undefined ? user_attributes.Mobile : ''
+        let City = user_attributes.City != undefined ? user_attributes.City : ''
         console.log(data_body);
         let count = 0;
         if (data_body.events[0].data.custom_event_type == 'add_to_cart') {
@@ -107,7 +105,7 @@ module.exports = {
 
     },
 
-    async delete(ctx){
+    async delete(ctx) {
         const entry = await strapi.entityService.delete('plugin::akamail.akalead', -8110933852199574000);
     }
 }
