@@ -43,20 +43,21 @@ module.exports = {
             let Mobile = user_attributes.Mobile
             let City = user_attributes.City
             console.log(data_body.mpid, Email,Mobile,City)
-            // let entry = await strapi.db.query('plugin::akamail.akalead').create({
-            //     data: {
-            //       id: data_body.mpid * -1,
-            //       Email: Email,
-            //       Mobile: Mobile,
-            //     //   Full_Name: Full_Name,
-            //       City: City,
-            //     //   Lead_Source: Lead_Source,
-            //     //   Submitted_Date: Submitted_Date,
-            //     //   Journey_Name: journey_name,
-            //     //   List_Name: list_name
-            //     }
-            //   });
-              
+            if(data_body.events[0].data.custom_event_type == 'add_to_cart'){
+                let entry = await strapi.db.query('plugin::akamail.akalead').create({
+                    data: {
+                    id: data_body.mpid * -1,
+                    Email: Email,
+                    Mobile: Mobile,
+                    //   Full_Name: Full_Name,
+                    City: City,
+                    //   Lead_Source: Lead_Source,
+                    //   Submitted_Date: Submitted_Date,
+                    //   Journey_Name: journey_name,
+                    //   List_Name: list_name
+                    }
+                });
+            }
 
 
 
