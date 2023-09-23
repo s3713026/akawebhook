@@ -1,8 +1,8 @@
 
 const bcrypt = require("bcryptjs");
-
+const request = require('request');
 function sendmail(email) {
-    var request = require('request');
+    
     var options = {
         'method': 'POST',
         'url': 'https://email.unito.vn/api/send-email',
