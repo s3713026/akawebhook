@@ -37,24 +37,24 @@ module.exports = {
             let user_identities = data_body.user_identities;
             let user_attributes = data_body.user_attributes;
             console.log(data_body)
-            console.log("event",data_body.event);
+            console.log("event",data_body.events);
             let Email = user_identities[0].identity
             let Mobile = user_attributes.Mobile
             let City = user_attributes.City
             console.log(data_body.mpid, Email,Mobile,City)
-            let entry = await strapi.db.query('plugin::akamail.akalead').create({
-                data: {
-                  id: data_body.mpid * -1,
-                  Email: Email,
-                  Mobile: Mobile,
-                //   Full_Name: Full_Name,
-                  City: City,
-                //   Lead_Source: Lead_Source,
-                //   Submitted_Date: Submitted_Date,
-                //   Journey_Name: journey_name,
-                //   List_Name: list_name
-                }
-              });
+            // let entry = await strapi.db.query('plugin::akamail.akalead').create({
+            //     data: {
+            //       id: data_body.mpid * -1,
+            //       Email: Email,
+            //       Mobile: Mobile,
+            //     //   Full_Name: Full_Name,
+            //       City: City,
+            //     //   Lead_Source: Lead_Source,
+            //     //   Submitted_Date: Submitted_Date,
+            //     //   Journey_Name: journey_name,
+            //     //   List_Name: list_name
+            //     }
+            //   });
               
 
 
