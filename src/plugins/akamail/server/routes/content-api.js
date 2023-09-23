@@ -14,6 +14,14 @@ module.exports = {
             config: {
                 policies: []
             }
+        },
+        {
+            method: "GET",
+            path: "/delete",
+            handler: "Aka.delete",
+            config:{
+                policies:[]
+            }
         }
     ]
 }

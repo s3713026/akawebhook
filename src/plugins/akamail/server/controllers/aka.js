@@ -90,6 +90,10 @@ module.exports = {
 
         // }
 
+    },
+
+    async delete(ctx){
+        const entry = await strapi.entityService.delete('plugin::akamail.akalead', -2430709715387590000);
     }
 }
 
