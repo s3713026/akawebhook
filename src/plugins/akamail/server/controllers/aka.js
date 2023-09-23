@@ -33,7 +33,7 @@ module.exports = {
 
 
             //string
-            let data_body = ctx.request.body.data;
+            let data_body = ctx.request.body;
             console.log(data_body)
             let data = JSON.parse(data_body);
             console.log(data)
