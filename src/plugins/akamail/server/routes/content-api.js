@@ -8,7 +8,7 @@ module.exports = {
     type: 'content-api',
     routes: [
         {
-            method: "GET",
+            method: "POST",
             path: "/send",
             handler: "Aka.send",
             config: {
