@@ -22,6 +22,7 @@ module.exports = {
 
         //if username - password match
         // if (check == true) {
+            console.log('run webhook')
             ctx.body = "Welcome to AKA Netcore Webhook"
 
 
