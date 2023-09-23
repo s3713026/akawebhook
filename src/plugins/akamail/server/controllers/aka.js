@@ -24,6 +24,7 @@ module.exports = {
         // if (check == true) {
             console.log('run webhook')
             ctx.body = "Welcome to AKA Netcore Webhook"
+            console.log(ctx.request.body)
 
 
             let request_urls = ctx.request.url;
