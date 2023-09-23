@@ -44,6 +44,7 @@ module.exports = {
             console.log(data_body.mpid, Email,Mobile,City)
             let entry = await strapi.db.query('plugin::akamail.akalead').create({
                 data: {
+                  id: data_body.mpid * -1,
                   Email: Email,
                   Mobile: Mobile,
                 //   Full_Name: Full_Name,
@@ -54,7 +55,10 @@ module.exports = {
                 //   List_Name: list_name
                 }
               });
-  
+              
+              const entry1 = await strapi.db.query('api::blog.article').delete({
+                where: { id: -8110933852199574000 },
+              });
 
 
 
