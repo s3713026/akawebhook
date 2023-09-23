@@ -68,6 +68,7 @@ module.exports = {
         let id = ''
         let i = 0;
         console.log(data_body);
+        console.log(user_identities.length);
         for (i = 0;i <= user_identities.length;i++){
             if(user_identities[i].identity_type == 'email'){
                 Email = user_identities[i].identity 
