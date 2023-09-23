@@ -1,0 +1,47 @@
+{
+    "kind": "collectionType",
+    "collectionName": "akaleads",
+    "info": {
+        "singularName": "akalead",
+        "pluralName": "akaleads",
+        "displayName": "AKAdigital Leads"
+    },
+    "options": {
+        "draftAndPublish": false,
+        "comment": ""
+    },
+    "pluginOptions": {
+        "content-manager": {
+            "visible": true
+        },
+        "content-type-builder": {
+            "visible": true
+        }
+    },
+    "attributes": {
+        "Email": {
+            "type": "string",
+            "required": true,
+            "maxLentgh": 100
+        },
+        "Mobile": {
+            "type": "string",
+            "maxLentgh": 100
+        },
+        "Full_Name": {
+            "type": "string",
+            "maxLentgh": 100
+        },
+        "City": {
+            "type": "string",
+            "maxLentgh": 100
+        },
+        "Submitted_Date": {
+            "type": "datetime"
+        },
+        "List_Name": {
+            "type": "string",
+            "maxLentgh": 100
+        }
+    }
+}
