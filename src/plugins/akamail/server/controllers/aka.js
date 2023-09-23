@@ -24,7 +24,7 @@ module.exports = {
         // if (check == true) {
             console.log('run webhook')
             ctx.body = "Welcome to AKA Netcore Webhook"
-            console.log(ctx.request.body)
+            
 
 
             let request_urls = ctx.request.url;
@@ -34,6 +34,28 @@ module.exports = {
 
             //string
             let data_body = ctx.request.body.data;
+            let user_identities = data_body.user_identities;
+            let user_attributes = data_body.user_attributes;
+            console.log(data_body)
+            console.log("event",data_body.event);
+            let Email = user_identities[0].identity
+            let Mobile = user_attributes.Mobile
+            let City = user_attributes.City
+            console.log(data_body.mpid, Email,Mobile,City)
+            let entry = await strapi.db.query('plugin::akamail.akalead').create({
+                data: {
+                  id: data_body.mpid,
+                  Email: Email,
+                  Mobile: Mobile,
+                //   Full_Name: Full_Name,
+                  City: City,
+                //   Lead_Source: Lead_Source,
+                //   Submitted_Date: Submitted_Date,
+                //   Journey_Name: journey_name,
+                //   List_Name: list_name
+                }
+              });
+  
 
 
 
