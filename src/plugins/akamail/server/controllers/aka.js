@@ -86,7 +86,7 @@ module.exports = {
             count = count + 1;
             let entry = await strapi.db.query('plugin::akamail.akalead').create({
                 data: {
-                    id : id,
+                    // id : id,
                     Email: Email,
                     Mobile: Mobile,
                     //   Full_Name: Full_Name,
