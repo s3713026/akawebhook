@@ -38,7 +38,7 @@ module.exports = {
             let user_attributes = data_body.user_attributes;
             console.log(data_body)
             console.log("event",data_body.events);
-            console.log("event",data_body.events[0].data);
+            console.log("event",data_body.events[0].data.custom_event_type);
             let Email = user_identities[0].identity
             let Mobile = user_attributes.Mobile
             let City = user_attributes.City
