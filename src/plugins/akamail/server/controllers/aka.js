@@ -34,6 +34,7 @@ module.exports = {
 
             //string
             let data_body = ctx.request.body.data;
+            console.log(data_body)
             let data = JSON.parse(data_body);
             console.log(data)
             let user_identities = data.user_identities;
