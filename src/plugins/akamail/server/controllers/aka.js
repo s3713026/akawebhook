@@ -56,9 +56,6 @@ module.exports = {
                 }
               });
               
-              const entry1 = await strapi.db.query('api::blog.article').delete({
-                where: { id: -8110933852199574000 },
-              });
 
 
 
