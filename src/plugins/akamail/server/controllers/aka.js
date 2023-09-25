@@ -105,10 +105,10 @@ module.exports = {
 
     },
 
-    async sendfromAKA(ctx) {
+    async sendfromaka(ctx) {
         
         console.log('run webhook')
-        ctx.body = "Welcome to AKA Netcore Webhook"
+        ctx.body = "Welcome to AKA Webhook"
 
 
 

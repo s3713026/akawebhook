@@ -18,7 +18,7 @@ module.exports = {
         {
             method: "POST",
             path: "/sendfromAKA",
-            handler: "Aka.sendfromAKA",
+            handler: "Aka.sendfromaka",
             config:{
                 policies:[]
             }
