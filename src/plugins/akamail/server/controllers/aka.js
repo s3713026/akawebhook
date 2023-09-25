@@ -12,8 +12,8 @@ function sendmail(email,html,subject,from,) {
         body: JSON.stringify({
             "domain": "app.akadigital.net",
             "key": "aka",
-            "pkey": "private_app.key",
-            "from": "sender@app.akadigital.net",
+            "pkey": "private_go.key",
+            "from": "aka_digital@go.akadigital.net",
             "to": email,
             "subject": "Thanks for join Aka digital",
             "text": "This is a test email from app.",
