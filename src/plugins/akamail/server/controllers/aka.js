@@ -125,7 +125,7 @@ module.exports = {
         let id = ''
         let i = 0;
         console.log("Raw data: ",data_body);
-        console.log(user_identities[0].identity_type);
+        // console.log(user_identities[0].identity_type);
         console.log("Raw event: ",data_body.events)
 
         // for (i = 0; i < user_identities.length; i++) {
