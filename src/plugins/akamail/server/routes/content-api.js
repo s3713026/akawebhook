@@ -16,6 +16,14 @@ module.exports = {
             }
         },
         {
+            method: "POST",
+            path: "/sendfromAKA",
+            handler: "Aka.sendfromAKA",
+            config:{
+                policies:[]
+            }
+        },
+        {
             method: "GET",
             path: "/delete",
             handler: "Aka.delete",
@@ -23,5 +31,6 @@ module.exports = {
                 policies:[]
             }
         }
+
     ]
 }

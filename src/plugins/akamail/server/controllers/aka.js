@@ -1,7 +1,7 @@
 
 const bcrypt = require("bcryptjs");
 
-function sendmail(email) {
+function sendmail(email,html,subject,from,) {
     var request = require('request');    
     var options = {
         'method': 'POST',
@@ -98,6 +98,67 @@ module.exports = {
             sendmail(Email)
         }
         console.log(count)
+
+
+
+        // }
+
+    },
+
+    async sendfromAKA(ctx) {
+        
+        console.log('run webhook')
+        ctx.body = "Welcome to AKA Netcore Webhook"
+
+
+
+        let request_urls = ctx.request.url;
+        let request_method = ctx.request.method;
+        let request_record = ctx.request["x-forwarded-for"];
+
+
+        //string
+        let data_body = ctx.request.body;
+        let user_identities = data_body.user_identities;
+        let user_attributes = data_body.user_attributes;
+        let Email = '';
+        let id = ''
+        let i = 0;
+        console.log("Raw data: ",data_body);
+        console.log(user_identities[0].identity_type);
+        console.log("Raw event: ",data_body.events)
+
+        // for (i = 0; i < user_identities.length; i++) {
+        //     if (user_identities[i].identity_type == 'email') {
+        //         Email = user_identities[i].identity
+        //     } else if (user_identities[i].identity_type == 'customer_id') {
+        //         id = user_identities[i].identity
+        //     }
+        // }
+
+        // let Mobile = user_attributes.Mobile != undefined ? user_attributes.Mobile : ''
+        // let City = user_attributes.City != undefined ? user_attributes.City : ''
+        // console.log(data_body);
+        // let count = 0;
+        // if (data_body.events[0].data.custom_event_type == 'add_to_cart') {
+        //     console.log('update')
+        //     count = count + 1;
+        //     let entry = await strapi.db.query('plugin::akamail.akalead').create({
+        //         data: {
+        //             // id : id,
+        //             Email: Email,
+        //             // Mobile: Mobile,
+        //             //   Full_Name: Full_Name,
+        //             // City: City,
+        //             //   Lead_Source: Lead_Source,
+        //             //   Submitted_Date: Submitted_Date,
+        //             //   Journey_Name: journey_name,
+        //             //   List_Name: list_name
+        //         }
+        //     });
+        //     // sendmail(Email)
+        // }
+        // console.log(count)
 
 
 
